@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- This project isn't going to appear on search engines, but I thought I'd include it anyways. -->
+    <meta
+      name="description"
+      content="Everything you need to know about Mardi Gras, including updated parade routes, traditions, the best places to get Mardi Gras beads, masks, king cakes and more!"
+    />
+
+    <!-- On mobile chrome, makes browser ui yellow -->
+    <meta name="theme-color" content="#f2cc0f" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../css/main.css" />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Pattaya&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <title>Mardi Gras ★ New Orleans</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-wrapper">
+        <a href="./" class="img-logo-anchor">
+          <img class="img-logo" src="../images/mardiGras2021Logo.png" alt="Mardi Gras 2021" />
+        </a>
+        <button class="btn-header" id="btn-header-open-menu">
+          <ion-icon name="menu" size="large"></ion-icon>
+        </button>
+        <h2 class="header-page-title">Media</h2>
+
+        <nav class="nav-header" id="nav-header" aria-label="Navigation menu">
+          <div class="header-sect">
+            <button class="btn-header btn-nav-back" id="btn-header-close-menu">
+              <ion-icon name="chevron-back" size="large"></ion-icon>
+            </button>
+            <h2 class="header-page-title">Media</h2>
+          </div>
+          <!-- header-sect end -->
+          <ul>
+            <li><a class="btn-nav" href="./">Home</a></li>
+            <li><a class="btn-nav" href="./about.html">About</a></li>
+            <li><a class="btn-nav btn-nav-current" href="./media.html">Media</a></li>
+            <li>
+              <a class="btn-nav" href="./faq.html" aria-label="Frequently asked questions">FAQ</a>
+            </li>
+            <li><a class="btn-nav" href="./contact-us.html">Contact Us</a></li>
+            <li><a class="btn-nav" href="./quiz.html">Quiz!</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Header end -->
+
+    <main class="page-wrapper media-page">
+      <section class="pictures-section">
+        <div class="top-ribbons-wrapper">
+          <div class="ribbons-shadow-container">
+            <div class="top-ribbons-purple"></div>
+          </div>
+          <div class="ribbons-shadow-container">
+            <div class="top-ribbons-yellow"></div>
+          </div>
+        </div>
+        <!-- top-ribbons end -->
+
+        <!-- Carousel -->
+        <div class="carousel-wrapper">
+          <div class="carousel-items-container">
+            <div class="carousel-item"><img src="https://spca.co.il/wp-content/uploads/2021/11/dog.jpeg" alt=""></div>
+            <div class="carousel-item"><img src="https://live-production.wcms.abc-cdn.net.au/ff1221fbfdb2fe163fdda15df5f77676?impolicy=wcms_crop_resize&cropH=394&cropW=700&xPos=0&yPos=37&width=862&height=485" alt=""></div>
+            <div class="carousel-item"><img src="https://e3.365dm.com/22/05/2048x1152/skynews-pug-dog_5774995.jpg" alt=""></div>
+            <div class="carousel-item"><img src="https://ggsc.s3.amazonaws.com/images/uploads/The_Science-Backed_Benefits_of_Being_a_Dog_Owner.jpg" alt=""></div>
+            <div class="carousel-item"><img src="https://www.guidedogsinsurance.org.au/GuideDogs/media/images/dog-insurance-article-image.jpg" alt=""></div>
+          </div>
+          <div class="carousel-pagination"></div>
+        </div>
+
+        <div class="bottom-ribbons-wrapper">
+          <div class="ribbons-shadow-container">
+            <div class="bottom-ribbons-purple"></div>
+          </div>
+          <div class="ribbons-shadow-container">
+            <div class="bottom-ribbons-yellow"></div>
+          </div>
+        </div>
+        <!-- bottom-ribbons end -->
+      </section>
+
+      <section class="videos-section">
+        <h2>Videos</h2>
+
+        <!-- 
+          srcdoc hack to avoid loading every video at once.
+          Loads only the thumbnail of the video. Once user clicks, get the embedded.
+          Thanks css-tricks!
+         -->
+
+        <div class="videos-wrapper">
+          <div class="youtube-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/TZv2_kHXcMk"
+              srcdoc="<style>*
+                {
+                  padding:0;
+                  margin:0;
+                  overflow:hidden
+                }
+                html,body{
+                  height:100%
+                }
+                img,span{
+                  position:absolute;
+                  width:100%;
+                  top:0;
+                  bottom:0;
+                  margin:auto
+                }span{
+                  height:1.5em;
+                  text-align:center;
+                  font:48px/1.5 sans-serif;
+                  color:white;
+                  text-shadow:0 0 0.5em black
+                }
+              </style>
+              <a href=https://www.youtube.com/embed/TZv2_kHXcMk>
+                <img src=https://img.youtube.com/vi/TZv2_kHXcMk/hqdefault.jpg alt='Video Mardi Gras Band'>
+                <span>▶</span></a>"
+                "
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="youtube-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/V1V_7Lg5hDI"
+              srcdoc="<style>*
+                {
+                  padding:0;
+                  margin:0;
+                  overflow:hidden
+                }
+                html,body{
+                  height:100%
+                }
+                img,span{
+                  position:absolute;
+                  width:100%;
+                  top:0;
+                  bottom:0;
+                  margin:auto
+                }span{
+                  height:1.5em;
+                  text-align:center;
+                  font:48px/1.5 sans-serif;
+                  color:white;
+                  text-shadow:0 0 0.5em black
+                }
+              </style>
+              <a href=https://www.youtube.com/embed/V1V_7Lg5hDI>
+                <img src=https://img.youtube.com/vi/V1V_7Lg5hDI/hqdefault.jpg alt='Video Muses Parade'>
+                <span>▶</span></a>"
+                "
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="youtube-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/sEgUCOUPJBk"
+              srcdoc="<style>*
+                {
+                  padding:0;
+                  margin:0;
+                  overflow:hidden
+                }
+                html,body{
+                  height:100%
+                }
+                img,span{
+                  position:absolute;
+                  width:100%;
+                  top:0;
+                  bottom:0;
+                  margin:auto
+                }span{
+                  height:1.5em;
+                  text-align:center;
+                  font:48px/1.5 sans-serif;
+                  color:white;
+                  text-shadow:0 0 0.5em black
+                }
+              </style>
+              <a href=https://www.youtube.com/embed/sEgUCOUPJBk>
+                <img src=https://img.youtube.com/vi/sEgUCOUPJBk/hqdefault.jpg alt='Video Mardi Gras Military Band'>
+                <span>▶</span></a>"
+                "
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="youtube-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/vabOcGkvGy0"
+              srcdoc="<style>*
+                {
+                  padding:0;
+                  margin:0;
+                  overflow:hidden
+                }
+                html,body{
+                  height:100%
+                }
+                img,span{
+                  position:absolute;
+                  width:100%;
+                  top:0;
+                  bottom:0;
+                  margin:auto
+                }span{
+                  height:1.5em;
+                  text-align:center;
+                  font:48px/1.5 sans-serif;
+                  color:white;
+                  text-shadow:0 0 0.5em black
+                }
+              </style>
+              <a href=https://www.youtube.com/embed/vabOcGkvGy0>
+                <img src=https://img.youtube.com/vi/vabOcGkvGy0/hqdefault.jpg alt='Video Rolling Elvi Mardi Gras'>
+                <span>▶</span></a>"
+                "
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="youtube-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/h72DpretYDM"
+              srcdoc="<style>*
+                {
+                  padding:0;
+                  margin:0;
+                  overflow:hidden
+                }
+                html,body{
+                  height:100%
+                }
+                img,span{
+                  position:absolute;
+                  width:100%;
+                  top:0;
+                  bottom:0;
+                  margin:auto
+                }span{
+                  height:1.5em;
+                  text-align:center;
+                  font:48px/1.5 sans-serif;
+                  color:white;
+                  text-shadow:0 0 0.5em black
+                }
+              </style>
+              <a href=https://www.youtube.com/embed/h72DpretYDM>
+                <img src=https://img.youtube.com/vi/h72DpretYDM/hqdefault.jpg alt='Video Mardi Gras 2018: Live from New Orleans'>
+                <span>▶</span></a>"
+                "
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="youtube-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/IyNC72zZbdo"
+              srcdoc="<style>*
+                {
+                  padding:0;
+                  margin:0;
+                  overflow:hidden
+                }
+                html,body{
+                  height:100%
+                }
+                img,span{
+                  position:absolute;
+                  width:100%;
+                  top:0;
+                  bottom:0;
+                  margin:auto
+                }span{
+                  height:1.5em;
+                  text-align:center;
+                  font:48px/1.5 sans-serif;
+                  color:white;
+                  text-shadow:0 0 0.5em black
+                }
+              </style>
+              <a href=https://www.youtube.com/embed/IyNC72zZbdo>
+                <img src=https://img.youtube.com/vi/IyNC72zZbdo/hqdefault.jpg alt='Video Flying Butterfles at Krewe of Muses'>
+                <span>▶</span></a>"
+                "
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="youtube-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/7i_0sUjBGdg"
+              srcdoc="<style>*
+                {
+                  padding:0;
+                  margin:0;
+                  overflow:hidden
+                }
+                html,body{
+                  height:100%
+                }
+                img,span{
+                  position:absolute;
+                  width:100%;
+                  top:0;
+                  bottom:0;
+                  margin:auto
+                }span{
+                  height:1.5em;
+                  text-align:center;
+                  font:48px/1.5 sans-serif;
+                  color:white;
+                  text-shadow:0 0 0.5em black
+                }
+              </style>
+              <a href=https://www.youtube.com/embed/7i_0sUjBGdg>
+                <img src=https://img.youtube.com/vi/7i_0sUjBGdg/hqdefault.jpg alt='Video Mardi Gras 2014: Bourbon Street, Lundi Gras, Parades and More'>
+                <span>▶</span></a>"
+                "
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <!-- Container end -->
+      </section>
+    </main>
+    <!-- page-wrapper end -->
+
+    <footer>
+      <div class="footer-edge-container">
+        <div class="ribbons-shadow-container">
+          <div class="footer-yellow-edge"></div>
+        </div>
+        <div class="ribbons-shadow-container">
+          <div class="footer-purple-edge"></div>
+        </div>
+      </div>
+      <div class="footer-content">
+        <p>
+          Copyright &copy; 1999-2022<br />
+          Tchelet Levi
+        </p>
+        <p>Made by Tchelet Levi</p>
+      </div>
+    </footer>
+
+    <!-- Ion Icons Framework -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- App logic -->
+    <script src="../scripts/appLogic.js"></script>
+
+    <!-- Carousel logic -->
+    <script src="../scripts/carousel.js"></script>
+  </body>
+</html>

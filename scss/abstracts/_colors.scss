@@ -1,0 +1,44 @@
+// Brand colors
+$purple-50: #efe5f2;
+$purple-100: #d8bfdf;
+$purple-200: #bf96cb;
+$purple-300: #a66fb6;
+$purple-400: #9453a6; // 400 default. The provided color from the palette.
+$purple-500: #833c97;
+$purple-600: #773890;
+$purple-700: #663187;
+$purple-800: #572c7c;
+$purple-900: #3d226d;
+$primary-purple: $purple-400;
+
+$green-50: #f1f7e8;
+$green-100: #dcecc5;
+$green-200: #c6dfa0;
+$green-300: #afd27a;
+$green-400: #9dc85c;
+$green-500: #8cbf3f; // 500 default.
+$green-600: #7daf37;
+$green-700: #689b2d;
+$green-800: #558825;
+$green-900: #326613;
+$primary-green: $green-500;
+
+$yellow-50: #fefbe5;
+$yellow-100: #fcf5be;
+$yellow-200: #f9ee93;
+$yellow-300: #f6e867;
+$yellow-400: #f4e343;
+$yellow-500: #f2de13;
+$yellow-600: #f2cc0f; // 600 default.
+$yellow-700: #f1b403;
+$yellow-800: #f09c00;
+$yellow-900: #ed7100;
+$primary-yellow: $yellow-600;
+
+$whiteish: #f2f2f2;
+$black: #0d0d0d;
+
+$green-gradient: radial-gradient($green-100, $primary-green);
+$yellow-gradient: radial-gradient($yellow-300 0%, $primary-yellow 80%);
+
+$error: #bf3f3f;

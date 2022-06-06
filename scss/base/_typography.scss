@@ -1,0 +1,17 @@
+$text-primary: rgba(0, 0, 0, 0.87);
+$text-secondary: rgba(0, 0, 0, 0.54);
+$text-tertiary: rgba(0, 0, 0, 0.38);
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: $text-primary;
+}
+
+hr {
+  width: 90%;
+  margin: 4rem auto;
+}
+
+$roboto: "Roboto", sans-serif;
+$pattaya: "Pattaya", sans-serif;
+$henny: "Henny Penny", cursive; ;

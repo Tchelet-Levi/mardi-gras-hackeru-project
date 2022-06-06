@@ -1,0 +1,96 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+@use "../components/" as *;
+@use "../layout/" as *;
+
+.about-page {
+  h1 {
+    font-family: $henny;
+    margin: 0;
+    font-weight: 400;
+    font-size: 2.5rem;
+    letter-spacing: 0.11em;
+    line-height: 58px;
+
+    text-align: center;
+    color: $primary-yellow;
+  }
+
+  .title-card {
+    position: relative;
+    display: grid;
+    place-content: center;
+
+    min-height: 40vh;
+
+    z-index: 1;
+
+    & .background {
+      position: absolute;
+
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      z-index: -1;
+
+      filter: brightness(25%);
+
+      @include image-div;
+      background-image: url("../../images/festival1.jpg");
+    }
+  }
+}
+
+.about-sections-container {
+  @include generic-section;
+  padding-bottom: $footer-edge-height + 3rem;
+  padding-top: $footer-edge-height + 3rem;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.about-mayor-section {
+  text-align: center;
+
+  h3 {
+    font-family: $roboto;
+    font-weight: 500;
+
+    margin-top: 3rem;
+  }
+
+  .mayor-img {
+    position: relative;
+    margin: 0 auto;
+
+    width: 25ch;
+    height: 25ch;
+
+    border-radius: 99999px;
+    background-image: url("../../images/LaToya_Cantrell.jpg");
+
+    &::before {
+      content: "";
+      position: absolute;
+
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      border-radius: 99999px;
+
+      box-shadow: $box-shadow-inset-4;
+    }
+  }
+}
+
+.about-info-section,
+.about-mayor-section {
+  max-width: 700px;
+}

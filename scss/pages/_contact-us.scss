@@ -1,0 +1,32 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+@use "../components/" as *;
+@use "../layout/" as *;
+
+.contact-us-section {
+  @include generic-section;
+
+  // 1.5rem = base padding from generic-section
+  // + footer edge height
+  // + additional 4rem
+  padding-bottom: 1.5rem + $footer-edge-height + 4rem;
+  padding-top: 1.5rem + $footer-edge-height;
+  min-height: $full-height;
+
+  text-align: center;
+
+  form {
+    margin-top: 4rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .input-container {
+    max-width: 720px;
+    width: 100%;
+  }
+
+  .btn-cta {
+    margin-top: 2rem;
+  }
+}

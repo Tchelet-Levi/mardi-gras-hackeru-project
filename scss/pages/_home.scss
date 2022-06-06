@@ -1,0 +1,135 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+@use "../components/" as *;
+@use "../layout/" as *;
+
+$full-height: calc(100vh - var(--header-height));
+$full-height-last: calc(100vh - var(--header-height) + $footer-edge-height);
+
+.hero-section {
+  position: relative;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr auto auto;
+  grid-template-areas:
+    "."
+    "content"
+    "button"
+    ".";
+
+  justify-content: center;
+
+  color: white;
+  font-family: "Pattaya", sans-serif;
+  text-align: center;
+  letter-spacing: 0.055em;
+
+  height: $full-height;
+  padding-bottom: $footer-edge-height;
+
+  h1 {
+    color: $primary-yellow;
+    font-family: $henny;
+    font-size: 3rem;
+    font-weight: normal;
+
+    margin: 0;
+
+    @include medium-device {
+      font-size: 6rem;
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-family: $henny;
+
+    @include medium-device {
+      font-size: 3rem;
+    }
+  }
+
+  .days-counter {
+    font-size: 2rem;
+    color: $primary-yellow;
+
+    @include medium-device {
+      font-size: 3rem * 1.5;
+    }
+  }
+}
+
+.hs-title-container {
+  grid-area: content;
+  margin-bottom: 10ch;
+}
+
+.hero-img {
+  position: absolute;
+  display: block;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position-x: 80%;
+
+  background-color: $text-primary;
+  background-image: url("../images/hero-image.jpg");
+
+  filter: brightness(50%) saturate(50%);
+
+  z-index: -10;
+
+  width: 100%;
+  height: 100%;
+}
+
+// - Gallery section
+.home-gallery-section {
+  @include generic-section;
+  background-color: $primary-green;
+  background: $green-gradient;
+
+  min-height: $full-height;
+}
+
+// - Home Info Section
+.home-info-section {
+  @include generic-section;
+  padding-bottom: 6rem;
+
+  h3 {
+    color: $primary-purple;
+  }
+
+  p {
+    max-width: 80ch;
+    @include medium-device {
+      margin: 1rem auto;
+    }
+  }
+}
+
+// Sponsors Section
+.home-sponsors-section {
+  @include generic-section;
+
+  h3 {
+    margin: 6rem 0;
+  }
+
+  padding-bottom: 1.5rem + $footer-edge-height;
+  background: radial-gradient($green-100, $primary-green);
+}
+
+.sponsors-container {
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+
+  @include large-device {
+    grid-template-columns: repeat(auto-fit, 300px);
+  }
+
+  margin-bottom: 4rem;
+}

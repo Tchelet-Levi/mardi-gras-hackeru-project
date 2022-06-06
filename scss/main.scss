@@ -1,0 +1,17 @@
+/*
+
+  Since @import is getting deprecated, I will use the preferred @use keyword instead. They are similar but with a few key differences (mainly optimizations and namespaces).
+  Here's a fantastic video by Kevin Powell that explains these differences: https://youtu.be/CR-a8upNjJ0
+
+*/
+
+// Resets, typography, etc
+@use "./base/" as *;
+
+// Pages
+@use "./pages/home";
+@use "./pages/about";
+@use "./pages/contact-us";
+@use "./pages/faq";
+@use "./pages/media";
+@use "./pages/quiz";

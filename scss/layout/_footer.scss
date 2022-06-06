@@ -1,0 +1,58 @@
+@use "../abstracts" as *;
+@use "../base" as *;
+@use "../components/" as *;
+
+$footer-edge-height: 3.75rem;
+
+footer {
+  position: relative;
+  text-align: center;
+  margin-top: auto;
+  color: white;
+  background-color: $purple-400;
+
+  z-index: 1;
+}
+
+.footer-content {
+  background-color: $purple-400;
+  width: 100%;
+
+  z-index: 2;
+
+  p {
+    margin-top: 0;
+  }
+}
+
+.footer-edge-container {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  // + 1px because chrome leaves a 1px gap
+  transform: translateY(calc(-100% + 1px));
+
+  z-index: -1;
+
+  height: $footer-edge-height;
+  width: 100%;
+}
+
+.footer-yellow-edge,
+.footer-purple-edge {
+  position: absolute;
+  width: 100%;
+  height: $footer-edge-height;
+}
+
+.footer-yellow-edge {
+  background-color: $primary-yellow;
+  clip-path: polygon(0 0, 100% 50%, 100% 75%, 0 50%);
+}
+
+.footer-purple-edge {
+  background-color: $primary-purple;
+  clip-path: polygon(0 50%, 100% 75%, 100% 100%, 0 100%);
+}

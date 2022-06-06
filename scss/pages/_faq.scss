@@ -1,0 +1,25 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+@use "../components/" as *;
+@use "../layout/" as *;
+
+.faq-page {
+  @include generic-section;
+
+  padding-top: 1.5rem + $footer-edge-height;
+  padding-bottom: $footer-edge-height + 1.5rem + 3rem;
+  min-height: $full-height;
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+}
+
+.faq-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+
+  margin-top: 2rem;
+}

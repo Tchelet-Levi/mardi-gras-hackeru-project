@@ -1,0 +1,10 @@
+// Force the Live Sass Watcher to output to its own css folder; not inside the scss folder.
+{
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "./css"
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+@use "../components/" as *;
+@use "../layout/" as *;
+
+$_quiz-border-radius: $border-radius-2;
+
+.quiz-section {
+  @include generic-section;
+  min-height: $full-height;
+  padding-top: $footer-edge-height + 1rem;
+  padding-bottom: $footer-edge-height + 1rem;
+
+  background: $green-gradient;
+
+  text-align: center;
+
+  h1 {
+    margin-bottom: 3rem;
+    filter: $drop-shadow-1;
+  }
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  margin-top: 1rem;
+
+  input {
+    // Hide the input in favor of a custom made one because styling inputs is a nightmare.
+    height: 0;
+    width: 0;
+
+    transform: scale(0);
+  }
+
+  input:checked + label.quiz-radio-label {
+    background-color: $primary-purple;
+    color: white;
+  }
+
+  input:hover + .quiz-radio-label,
+  input:focus + .quiz-radio-label {
+    background-color: $purple-100;
+    color: $text-primary;
+  }
+
+  input:disabled + .quiz-radio-label {
+    background-color: $whiteish;
+    color: $text-primary;
+
+    border: 2px solid $text-tertiary;
+
+    & .quiz-radio-button-span {
+      border: 2px solid $text-tertiary;
+    }
+  }
+
+  /*
+    Note: 
+    using !important is 90% of the time a bad idea.
+    The only reason I am doing this here is to avoid making a massive
+    scss file of long selectors for added specificity since 
+    there is no reason for this to ever change anyways.
+    Thus I think this is a fair use case.
+  */
+
+  & .quiz-radio-label.correct {
+    background-color: $primary-green !important;
+    color: white !important;
+    border: 2px solid $primary-green !important;
+
+    & .quiz-radio-button-span {
+      border: 2px solid $primary-green !important;
+    }
+  }
+
+  & .quiz-radio-label.wrong {
+    background-color: $error !important;
+    color: white !important;
+    border: 2px solid $error !important;
+
+    & .quiz-radio-button-span {
+      border: 2px solid $error !important;
+    }
+  }
+
+  & .quiz-radio-label.would-be-correct {
+    background-color: $green-50 !important;
+    color: $text-primary !important;
+    border: 2px solid $primary-green !important;
+
+    & .quiz-radio-button-span {
+      border: 2px solid $primary-green !important;
+    }
+  }
+
+  input:hover + .quiz-radio-label.correct,
+  input:focus + .quiz-radio-label.correct {
+    border: 2px solid $primary-green;
+    background-color: $green-300;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.quiz-radio-label {
+  display: flex;
+  align-items: center;
+
+  background-color: $whiteish;
+  padding: 0.75rem;
+
+  border: 2px solid $primary-purple;
+  border-radius: 99999px;
+
+  .quiz-radio-button-span {
+    width: 1rem;
+    height: 1rem;
+
+    background-color: $whiteish;
+
+    border: 2px solid $primary-purple;
+    border-radius: 99999px;
+
+    margin-right: 1rem;
+  }
+}
+
+.quiz-wrapper {
+  background-color: $whiteish;
+
+  border-radius: $_quiz-border-radius;
+  box-shadow: $box-shadow-2;
+
+  max-width: 700px;
+  margin: 0 auto;
+
+  .your-score {
+    display: block;
+    font-weight: 400;
+
+    margin-top: 1rem;
+  }
+
+  .purple {
+    display: block;
+    margin-top: 0.25rem;
+  }
+}
+
+.question-wrapper {
+  position: relative;
+  display: grid;
+  place-content: center;
+
+  padding: 1.5rem;
+
+  min-height: 25ch;
+
+  z-index: 1;
+
+  .background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    border-top-left-radius: $_quiz-border-radius;
+    border-top-right-radius: $_quiz-border-radius;
+
+    overflow: hidden;
+  }
+
+  .background {
+    @include image-div;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: -1;
+
+    background-image: url("../images/llanydd-lloyd-5kL77tAHTqQ-unsplash.jpg");
+
+    // Hack to avoid white edges on blur()
+    transform: scale(1.03);
+    filter: brightness(25%) blur(2px);
+  }
+}
+
+.quiz-question {
+  font-size: 1.25rem;
+  color: $primary-yellow;
+  font-family: $henny;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.125em;
+}
+
+.question-number {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateY(50%) translateX(-50%);
+
+  display: grid;
+  place-items: center;
+
+  color: $primary-purple;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: $whiteish;
+  padding: 0.75rem;
+  margin: 0;
+  line-height: normal;
+
+  min-width: calc(2ch + (0.75rem * 2));
+  min-height: calc(2ch + (0.75rem * 2));
+
+  border-radius: 99999px;
+}
+
+.quiz-inputs-wrapper {
+  padding: 1.5rem;
+}
+
+.quiz-check-btn {
+  border: none;
+  font-family: $roboto;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: normal;
+
+  border-radius: $border-radius-2;
+
+  width: fit-content;
+  padding: 0.75rem 1.5rem;
+  margin: 0 auto;
+  margin-top: 1rem;
+
+  color: $primary-purple;
+  cursor: pointer;
+
+  &:hover {
+    color: $purple-700;
+  }
+
+  &:focus {
+    color: $purple-700;
+    outline: solid $purple-700 2px;
+  }
+}

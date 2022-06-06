@@ -1,0 +1,95 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.btn-cta {
+  position: relative;
+  border: none;
+  background-color: $primary-yellow;
+
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: $text-primary;
+
+  border-radius: $border-radius-1;
+
+  width: fit-content;
+  padding: 1.25rem 5rem;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+
+  cursor: pointer;
+
+  transform-style: preserve-3d;
+
+  // Firefox jagged edges fix.
+  outline: 1px solid transparent;
+
+  transition: transform 100ms ease;
+
+  grid-area: button;
+
+  &.smaller {
+    padding: 1.25rem 2.5rem;
+  }
+
+  &.purple {
+    background-color: $primary-purple;
+    color: white;
+
+    &::after {
+      background-color: $primary-yellow;
+    }
+  }
+
+  &.green {
+    background-color: $primary-green;
+    color: white;
+
+    &::before {
+      background-color: $primary-yellow;
+    }
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    border-radius: $border-radius-1;
+
+    // Firefox jagged edges fix.
+    outline: 1px solid transparent;
+
+    transition: transform 100ms ease;
+  }
+
+  &::before {
+    background-color: $primary-green;
+    transform: rotate(2deg) translateZ(-5px);
+  }
+
+  &::after {
+    background-color: $primary-purple;
+    transform: rotate(4deg) translateZ(-10px);
+  }
+
+  &:hover,
+  &:focus {
+    transform: rotate(2deg);
+    &::before {
+      transform: rotate(5deg) translateZ(-5px);
+    }
+
+    &::after {
+      transform: rotate(10deg) translateZ(-10px);
+    }
+  }
+}

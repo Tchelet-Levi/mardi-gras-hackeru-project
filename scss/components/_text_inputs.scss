@@ -1,0 +1,38 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.text-input {
+  position: relative;
+  border: none;
+
+  width: 100%;
+
+  padding: 1rem;
+
+  border-top-left-radius: $border-radius-2;
+  border-top-right-radius: $border-radius-2;
+  border-bottom: 2px $primary-green solid;
+
+  &:hover {
+    background-color: $purple-50;
+  }
+
+  &:focus {
+    outline: 2px solid $primary-green;
+  }
+}
+
+.text-input-label {
+  display: block;
+  font-weight: 500;
+  margin: 0.5rem 0;
+  margin-left: 0.25rem;
+
+  text-align: start;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}

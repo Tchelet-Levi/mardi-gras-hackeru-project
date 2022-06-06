@@ -1,0 +1,21 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+%image {
+  display: block;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position-x: 50%;
+
+  background-color: $text-primary;
+}
+
+.image {
+  @extend %image;
+}
+
+@mixin image-div {
+  @extend %image;
+}

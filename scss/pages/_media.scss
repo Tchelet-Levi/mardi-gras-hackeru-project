@@ -1,0 +1,44 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+@use "../components/" as *;
+@use "../layout/" as *;
+
+.media-page {
+}
+
+.pictures-section,
+.videos-section {
+  @include generic-section;
+  min-height: $full-height;
+  padding-top: $footer-edge-height + 1rem;
+  padding-bottom: $footer-edge-height + 1rem;
+
+  background: $green-gradient;
+
+  text-align: center;
+
+  h2 {
+    font-family: $pattaya;
+    letter-spacing: 0.125em;
+    font-weight: 400;
+  }
+}
+
+.videos-section {
+  background: $yellow-gradient;
+  padding-bottom: $footer-edge-height + 4rem;
+
+  h2 {
+    margin-bottom: 4rem;
+  }
+}
+
+.videos-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  place-content: center;
+  gap: 1rem;
+
+  @include x-large-device {
+  }
+}
