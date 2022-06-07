@@ -1,11 +1,21 @@
 /* 
-  ! This implementation does not yet support less than 4 pictures. Too much of a scope creep for this project..
+  ! This implementation does not yet support less than 4 pictures.
   If I wanted to support it I would duplicate the first and last carousel-items but it's unnecessary for this project,
   and more messy to do without a framework like React or Svelte.
+
+  Furthermore, this only supports one carousel per page currently.
+  ..I miss frameworks and their reusable components.
+
+  I could've spared myself an entire night and a half of headache from this if I just
+  used a library :')
 */
 
 // Get carousel-wrapper
 const carouselWrapper = document.querySelector(".carousel-wrapper");
+
+// Get buttons
+const btnLeft = document.getElementById("carousel-left-btn");
+const btnRight = document.getElementById("carousel-right-btn");
 
 // Get all carousel-items
 const carouselItems = document.querySelectorAll(".carousel-item");
@@ -18,6 +28,9 @@ const itemsLength = carouselItems.length;
 
 // Assuming all items share the same width, get the width of a single carousel-item.
 let itemWidth = carouselItems[0].getBoundingClientRect().width;
+
+// Get CSS rules for transform
+let transitionCSS = carouselItems[0].style.transition;
 
 // carousel-items moving yet another step while already transitioning looks bad.
 // Figure out if we're mid transition or not.
@@ -37,42 +50,40 @@ initializeCarousel();
 let canTransition = true;
 
 // Handle resizing
-window.onresize = (e) => {
+window.addEventListener("resize", (e) => {
+  // Recalculate the width and position of elements. carousel-item can be vh or % dependent.
   itemWidth = carouselItems[0].getBoundingClientRect().width;
   initialTransform();
 
-  if (canTransition) {
-    carouselItemsArr.forEach((item) => {
-      item.setAttribute("style", "transition: none");
-    });
-    canTransition = false;
-  }
-};
+  carouselItemsArr.forEach((item) => {
+    // Disable transition during resize to avoid ugly resizing.
+    item.style.transitionDuration = "0ms";
+  });
+});
 
-// Debug
-document.addEventListener("keydown", (e) => {
-  // Make sure they can move
-  canTransition = true;
-
-  if (e.key === "q" && !isTransitioning) {
-    // shift left
-
+// Button behavior
+btnLeft.onclick = (e) => {
+  if (!isTransitioning) {
     carouselItemsArr = arrayRotate(carouselItemsArr, true);
     transitionCarousel(carouselItemsArr, itemWidth);
   }
+};
 
-  if (e.key === "e" && !isTransitioning) {
-    // shift right
-
+btnRight.onclick = (e) => {
+  if (!isTransitioning) {
     carouselItemsArr = arrayRotate(carouselItemsArr);
     transitionCarousel(carouselItemsArr, itemWidth);
   }
-});
+};
 
 function transitionCarousel(carouselItems, itemWidth) {
   carouselItems.forEach((item, idx) => {
     const twoLeft = idx - 2;
 
+    // Undo any transition-duration 0ms from resize
+    item.style.transition = transitionCSS;
+
+    // Apply new transform
     item.style.transform = `translateX(${twoLeft * itemWidth}px)`;
     item.style.opacity = "1";
 

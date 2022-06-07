@@ -1,9 +1,14 @@
 @use "../abstracts/" as *;
 
+html {
+  height: 100%;
+}
+
 body {
   display: flex;
   flex-direction: column;
 
+  height: 100%;
   min-height: 100vh;
   scroll-behavior: smooth;
 }

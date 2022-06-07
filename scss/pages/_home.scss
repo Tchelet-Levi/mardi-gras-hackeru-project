@@ -90,6 +90,8 @@ $full-height-last: calc(100vh - var(--header-height) + $footer-edge-height);
   background-color: $primary-green;
   background: $green-gradient;
 
+  padding: ($footer-edge-height + 1rem) 1rem;
+
   min-height: $full-height;
 }
 
