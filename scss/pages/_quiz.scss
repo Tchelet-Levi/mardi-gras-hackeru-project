@@ -9,7 +9,7 @@ $_quiz-border-radius: $border-radius-2;
   @include generic-section;
   min-height: $full-height;
   padding-top: $footer-edge-height + 1rem;
-  padding-bottom: $footer-edge-height + 1rem;
+  padding-bottom: $footer-edge-height * 2 + 1rem;
 
   background: $green-gradient;
 
@@ -137,7 +137,7 @@ $_quiz-border-radius: $border-radius-2;
   border-radius: $_quiz-border-radius;
   box-shadow: $box-shadow-2;
 
-  max-width: 700px;
+  max-width: 512px;
   margin: 0 auto;
 
   .your-score {

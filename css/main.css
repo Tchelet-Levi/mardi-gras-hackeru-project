@@ -603,8 +603,6 @@ form {
   flex-direction: column;
   margin: 0 auto;
   height: 100%;
-  max-width: 720px;
-  max-height: 720px;
 }
 
 .carousel-items-container {
@@ -615,11 +613,6 @@ form {
   height: 100%;
   overflow: hidden;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-@media (min-width: 768px) {
-  .carousel-items-container {
-    border-radius: 4px;
-  }
 }
 
 .carousel-item {
@@ -671,11 +664,6 @@ form {
   position: absolute;
   left: 0;
   right: 0;
-}
-@media (min-width: 768px) {
-  .carousel-buttons {
-    border-radius: 4px;
-  }
 }
 .carousel-buttons button {
   border: none;
@@ -1021,9 +1009,8 @@ body {
   padding: 1.5rem;
   overflow: hidden;
   background-color: #8cbf3f;
-  background: radial-gradient(#dcecc5, #8cbf3f);
+  background: #833c97;
   padding: 4.75rem 0;
-  height: calc(100vh - var(--header-height));
 }
 .home-gallery-section h3 {
   color: rgba(0, 0, 0, 0.87);
@@ -1046,6 +1033,30 @@ body {
   color: rgba(0, 0, 0, 0.87);
   font-size: 1rem;
   line-height: 28px;
+}
+.home-gallery-section .home-gallery {
+  transform: rotate(1deg);
+  height: calc(100vh - 4.75rem * 2 - var(--header-height));
+  width: 90vw;
+  max-width: 1200px;
+  max-height: 720px;
+  /*
+    Yes, I know that with the overwrites here, it sort of breaks parts of the
+    carousel. For example, on clicking right, the left one immediately disappears,
+    but I'm counting on nobody noticing or caring.
+  */
+}
+@media (min-width: 1400px) {
+  .home-gallery-section .home-gallery {
+    overflow: hidden;
+  }
+}
+.home-gallery-section .home-gallery .carousel-items-container {
+  overflow: visible;
+  box-shadow: none;
+}
+.home-gallery-section .home-gallery .carousel-items-container .carousel-item {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .home-info-section {
@@ -1388,7 +1399,7 @@ body {
   overflow: hidden;
   min-height: calc(100vh - var(--header-height));
   padding-top: 4.75rem;
-  padding-bottom: 4.75rem;
+  padding-bottom: 8.5rem;
   background: radial-gradient(#dcecc5, #8cbf3f);
   text-align: center;
 }
@@ -1509,7 +1520,7 @@ body {
   background-color: #f2f2f2;
   border-radius: 4px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  max-width: 700px;
+  max-width: 512px;
   margin: 0 auto;
 }
 .quiz-wrapper .your-score {

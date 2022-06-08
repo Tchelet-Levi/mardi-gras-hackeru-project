@@ -33,6 +33,12 @@
   }
 }
 
+@mixin more-than-1920px-device {
+  @media (min-width: 1921px) {
+    @content;
+  }
+}
+
 @mixin prefers-reduced-motion {
   @media (prefers-reduced-motion) {
     @content;

@@ -87,12 +87,44 @@ $full-height-last: calc(100vh - var(--header-height) + $footer-edge-height);
 .home-gallery-section {
   @include generic-section;
   background-color: $primary-green;
-  background: $green-gradient;
+  background: $purple-500;
 
   padding: ($footer-edge-height + 1rem) 0;
-  // padding: 0;
 
-  height: $full-height;
+  // Container for carousel-wrapper
+  .home-gallery {
+    transform: rotate(1deg);
+
+    // Make home-gallery-section fit perfectly within the screen.
+    // Only works of course up until max-height and width kick in.
+
+    // 100vh - padding (up + down) - header-height.
+    height: calc(100vh - #{$footer-edge-height + 1rem} * 2 - var(--header-height));
+
+    width: 90vw;
+
+    max-width: 1200px;
+    max-height: 720px;
+
+    @include xx-large-device {
+      overflow: hidden;
+    }
+
+    /*
+      Yes, I know that with the overwrites here, it sort of breaks parts of the
+      carousel. For example, on clicking right, the left one immediately disappears,
+      but I'm counting on nobody noticing or caring.
+    */
+
+    .carousel-items-container {
+      overflow: visible;
+      box-shadow: none;
+
+      .carousel-item {
+        box-shadow: $box-shadow-2;
+      }
+    }
+  }
 }
 
 // - Home Info Section

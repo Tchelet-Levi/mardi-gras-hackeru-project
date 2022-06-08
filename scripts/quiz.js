@@ -100,6 +100,9 @@ const quiz = [
 let correctGuesses = 0;
 let currentQuestionIdx = 0;
 
+updateQuiz(currentQuestionIdx);
+playerScore.textContent = correctGuesses;
+
 function updateQuiz(idx) {
   if (idx < quiz.length) {
     questionHeader.textContent = quiz[idx].question;
@@ -143,9 +146,6 @@ function updateQuiz(idx) {
     }
   }
 }
-
-updateQuiz(currentQuestionIdx);
-playerScore.textContent = correctGuesses;
 
 checkBtn.addEventListener("click", (e) => {
   e.preventDefault();
