@@ -6,9 +6,8 @@
 .faq-page {
   @include generic-section;
 
-  padding-top: 1.5rem + $footer-edge-height;
+  padding-top: $ribbons-height + 1.5rem;
   padding-bottom: $footer-edge-height + 1.5rem + 3rem;
-  min-height: $full-height;
 
   h1 {
     margin-bottom: 2rem;

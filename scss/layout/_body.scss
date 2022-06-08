@@ -1,15 +1,12 @@
 @use "../abstracts/" as *;
 
-html {
-  height: 100%;
-}
-
 body {
   display: flex;
   flex-direction: column;
 
-  height: 100%;
+  overflow: auto;
   min-height: 100vh;
+
   scroll-behavior: smooth;
 }
 
@@ -17,6 +14,8 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+
+  margin-top: var(--header-height);
 }
 
 .purple {

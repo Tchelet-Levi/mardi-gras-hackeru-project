@@ -6,7 +6,7 @@ $header-min-height: calc(1em + 3rem);
 $_header-box-shadow: $box-shadow-3;
 
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -71,6 +71,13 @@ header {
 
   .btn-nav-current {
     @include large-device {
+      &:hover,
+      &:focus {
+        &::before {
+          background-color: $text-primary;
+        }
+      }
+
       &::before {
         transform: scale(1, 1);
         background-color: $text-secondary;

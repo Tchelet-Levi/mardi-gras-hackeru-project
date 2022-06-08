@@ -601,7 +601,10 @@ form {
   position: relative;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   height: 100%;
+  max-width: 720px;
+  max-height: 720px;
 }
 
 .carousel-items-container {
@@ -611,8 +614,12 @@ form {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 4px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+@media (min-width: 768px) {
+  .carousel-items-container {
+    border-radius: 4px;
+  }
 }
 
 .carousel-item {
@@ -628,6 +635,29 @@ form {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.carousel-item figure {
+  position: relative;
+  margin: 0;
+  height: 100%;
+}
+.carousel-item figure figcaption {
+  position: absolute;
+  font-family: "Pattaya", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.125em;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+@media (min-width: 768px) {
+  .carousel-item figure figcaption {
+    font-size: 1.5rem;
+  }
+}
 
 .carousel-buttons {
   display: flex;
@@ -635,13 +665,17 @@ form {
   align-items: center;
   height: 100%;
   overflow: hidden;
-  border-radius: 4px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   background-color: transparent;
   box-shadow: none;
   position: absolute;
   left: 0;
   right: 0;
+}
+@media (min-width: 768px) {
+  .carousel-buttons {
+    border-radius: 4px;
+  }
 }
 .carousel-buttons button {
   border: none;
@@ -720,8 +754,7 @@ footer {
 }
 
 header {
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -772,6 +805,9 @@ header {
   }
 }
 @media (min-width: 992px) {
+  .header-wrapper .btn-nav-current:hover::before, .header-wrapper .btn-nav-current:focus::before {
+    background-color: rgba(0, 0, 0, 0.87);
+  }
   .header-wrapper .btn-nav-current::before {
     transform: scale(1, 1);
     background-color: rgba(0, 0, 0, 0.54);
@@ -892,14 +928,10 @@ header {
     display: none;
   }
 }
-html {
-  height: 100%;
-}
-
 body {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  overflow: auto;
   min-height: 100vh;
   scroll-behavior: smooth;
 }
@@ -908,6 +940,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  margin-top: var(--header-height);
 }
 
 .purple {
@@ -921,15 +954,15 @@ body {
 .hero-section {
   position: relative;
   display: grid;
-  grid-template-rows: 1fr 1fr auto auto;
+  grid-template-rows: auto auto auto auto;
   grid-template-areas: "." "content" "button" ".";
   justify-content: center;
+  align-content: center;
   color: white;
   font-family: "Pattaya", sans-serif;
   text-align: center;
   letter-spacing: 0.055em;
-  height: calc(100vh - var(--header-height));
-  padding-bottom: 3.75rem;
+  min-height: calc(100vh - var(--header-height));
 }
 .hero-section h1 {
   color: #f2cc0f;
@@ -989,15 +1022,15 @@ body {
   overflow: hidden;
   background-color: #8cbf3f;
   background: radial-gradient(#dcecc5, #8cbf3f);
-  padding: 4.75rem 1rem;
-  min-height: calc(100vh - var(--header-height));
+  padding: 4.75rem 0;
+  height: calc(100vh - var(--header-height));
 }
 .home-gallery-section h3 {
   color: rgba(0, 0, 0, 0.87);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: normal;
   font-family: "Pattaya", sans-serif;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.08em;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -1024,10 +1057,10 @@ body {
 }
 .home-info-section h3 {
   color: rgba(0, 0, 0, 0.87);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: normal;
   font-family: "Pattaya", sans-serif;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.08em;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -1066,10 +1099,10 @@ body {
 }
 .home-sponsors-section h3 {
   color: rgba(0, 0, 0, 0.87);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: normal;
   font-family: "Pattaya", sans-serif;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.08em;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -1143,10 +1176,10 @@ body {
 }
 .about-sections-container h3 {
   color: rgba(0, 0, 0, 0.87);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: normal;
   font-family: "Pattaya", sans-serif;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.08em;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -1162,6 +1195,13 @@ body {
   color: rgba(0, 0, 0, 0.87);
   font-size: 1rem;
   line-height: 28px;
+}
+.about-sections-container h2 {
+  color: #9453a6;
+  font-family: "Pattaya", sans-serif;
+  font-size: 2rem;
+  font-weight: normal;
+  letter-spacing: 0.08em;
 }
 
 .about-mayor-section {
@@ -1208,10 +1248,10 @@ body {
 }
 .contact-us-section h3 {
   color: rgba(0, 0, 0, 0.87);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: normal;
   font-family: "Pattaya", sans-serif;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.08em;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -1246,16 +1286,15 @@ body {
   background-color: #f2f2f2;
   padding: 1.5rem;
   overflow: hidden;
-  padding-top: 5.25rem;
+  padding-top: 5rem;
   padding-bottom: 8.25rem;
-  min-height: calc(100vh - var(--header-height));
 }
 .faq-page h3 {
   color: rgba(0, 0, 0, 0.87);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: normal;
   font-family: "Pattaya", sans-serif;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.08em;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -1299,10 +1338,10 @@ body {
 .pictures-section h3,
 .videos-section h3 {
   color: rgba(0, 0, 0, 0.87);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: normal;
   font-family: "Pattaya", sans-serif;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.08em;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -1355,10 +1394,10 @@ body {
 }
 .quiz-section h3 {
   color: rgba(0, 0, 0, 0.87);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: normal;
   font-family: "Pattaya", sans-serif;
-  letter-spacing: 0.055em;
+  letter-spacing: 0.08em;
   text-align: center;
   margin-bottom: 2rem;
 }

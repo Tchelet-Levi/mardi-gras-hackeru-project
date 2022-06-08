@@ -3,14 +3,13 @@
 @use "../components/" as *;
 @use "../layout/" as *;
 
-$full-height: calc(100vh - var(--header-height));
 $full-height-last: calc(100vh - var(--header-height) + $footer-edge-height);
 
 .hero-section {
   position: relative;
 
   display: grid;
-  grid-template-rows: 1fr 1fr auto auto;
+  grid-template-rows: auto auto auto auto;
   grid-template-areas:
     "."
     "content"
@@ -18,14 +17,14 @@ $full-height-last: calc(100vh - var(--header-height) + $footer-edge-height);
     ".";
 
   justify-content: center;
+  align-content: center;
 
   color: white;
   font-family: "Pattaya", sans-serif;
   text-align: center;
   letter-spacing: 0.055em;
 
-  height: $full-height;
-  padding-bottom: $footer-edge-height;
+  min-height: $full-height;
 
   h1 {
     color: $primary-yellow;
@@ -90,9 +89,10 @@ $full-height-last: calc(100vh - var(--header-height) + $footer-edge-height);
   background-color: $primary-green;
   background: $green-gradient;
 
-  padding: ($footer-edge-height + 1rem) 1rem;
+  padding: ($footer-edge-height + 1rem) 0;
+  // padding: 0;
 
-  min-height: $full-height;
+  height: $full-height;
 }
 
 // - Home Info Section
