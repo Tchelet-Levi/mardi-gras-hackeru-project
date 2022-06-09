@@ -16,7 +16,7 @@ header {
 
   box-shadow: $_header-box-shadow;
 
-  z-index: 9999;
+  z-index: 1000;
 
   @include large-device {
     display: flex;

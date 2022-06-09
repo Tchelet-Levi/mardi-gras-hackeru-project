@@ -1,0 +1,95 @@
+@use "../abstracts/" as *;
+@use "../base/" as *;
+
+.lightbox-grid {
+  display: grid;
+
+  // ! Be very careful of minmax. Using percentages or fr units is SLOW.
+  // I just spent 3 hours trying to debug it..
+  grid-template-columns: repeat(auto-fill, 200px);
+
+  gap: 0.75rem;
+}
+
+.lightbox-item {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  transition: all 250ms ease;
+  transition-property: transform, box-shadow;
+
+  box-shadow: $box-shadow-1;
+
+  // The performance is bad, probably because I'm adding a transform later in style.
+  // This doesn't give the browser sufficient hints to add optimizations.
+  // So these two are here for optimization
+  will-change: transform;
+  transform: translateZ(0);
+
+  cursor: pointer;
+
+  img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: $box-shadow-2;
+  }
+
+  &.presented {
+    // width: 100vw;
+    // height: $full-height;
+
+    box-shadow: $box-shadow-5;
+    z-index: 10001;
+  }
+}
+
+.lightbox-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba($color: #000000, $alpha: 0.75);
+
+  z-index: 10000;
+
+  &.modal-closed {
+    display: none !important;
+  }
+}
+
+.lightbox-modal-close {
+  background: none;
+  border: none;
+  color: white;
+  line-height: 0;
+
+  position: absolute;
+  right: 0;
+
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+
+  padding: 0.75rem;
+  font-size: 2rem;
+  border-radius: 99999px;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($color: #000000, $alpha: 0.5);
+  }
+
+  &:active {
+    background-color: rgba($color: #000000, $alpha: 0.25);
+  }
+}

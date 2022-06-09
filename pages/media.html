@@ -21,9 +21,12 @@
     <link rel="stylesheet" href="../css/main.css" />
 
     <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Pattaya&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Pattaya&family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Mardi Gras ★ New Orleans</title>
   </head>
@@ -74,7 +77,47 @@
         <!-- top-ribbons end -->
 
         <!-- Content -->
-        
+        <div class="lightbox-wrapper">
+          <div class="lightbox-grid">
+            <div class="lightbox-item">
+              <img src="../images/festival1.jpg" alt="Carnival at night" />
+            </div>
+            <div class="lightbox-item">
+              <img src="../images/hero-image.jpg" alt="Two costume wearing attendees" />
+            </div>
+            <div class="lightbox-item">
+              <img src="../images/llanydd-lloyd-5kL77tAHTqQ-unsplash.jpg" alt="Pile of masks" />
+            </div>
+            <div class="lightbox-item">
+              <img src="../images/pexels-alleksana-6781807.jpg" alt="Mardi Gras cupcake" />
+            </div>
+            <div class="lightbox-item">
+              <img
+                src="../images/pexels-marius-nacu-11455712.jpg"
+                alt="Person with a big blue mask"
+              />
+            </div>
+            <div class="lightbox-item">
+              <img
+                src="../images/pexels-mikhail-nilov-9391374.jpg"
+                alt="Mask wearing lady drinking what could only be assumed to be orange juice and simply nothing else"
+              />
+            </div>
+            <div class="lightbox-item">
+              <img src="../images/pexels-polina-kovaleva-8404710.jpg" alt="Mardi Gras masks" />
+            </div>
+            <div class="lightbox-item">
+              <img src="../images/three masked people.jpg" alt="Three masked people" />
+            </div>
+          </div>
+          <div class="lightbox-modal modal-closed">
+            <button class="lightbox-modal-close">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+            <div class="lightbox-modal-content"></div>
+          </div>
+        </div>
+        <!-- Lightbox end -->
 
         <div class="bottom-ribbons-wrapper">
           <div class="ribbons-shadow-container">
@@ -96,7 +139,7 @@
           Thanks css-tricks!
          -->
 
-        <div class="videos-wrapper">
+        <!-- <div class="videos-wrapper">
           <div class="youtube-container">
             <iframe
               width="560"
@@ -369,7 +412,7 @@
               allowfullscreen
             ></iframe>
           </div>
-        </div>
+        </div> -->
         <!-- Container end -->
       </section>
     </main>
@@ -403,5 +446,7 @@
     <!-- App logic -->
     <script src="../scripts/appLogic.js"></script>
 
+    <!-- Lightbox -->
+    <script src="../scripts/lightbox.js"></script>
   </body>
 </html>
