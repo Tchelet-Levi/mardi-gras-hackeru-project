@@ -4,8 +4,6 @@
 .youtube-container {
   display: flex;
 
-  width: fit-content;
-
   box-shadow: $box-shadow-2;
 
   iframe {
@@ -14,9 +12,5 @@
     height: 100%;
 
     aspect-ratio: 16 / 9;
-
-    @include large-device {
-      width: fit-content;
-    }
   }
 }

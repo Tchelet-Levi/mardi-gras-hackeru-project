@@ -4,8 +4,9 @@
 .lightbox-grid {
   display: grid;
 
-  // ! Be very careful of minmax. Using percentages or fr units is SLOW.
-  // I just spent 3 hours trying to debug it..
+  // ! Be very careful of using percentages or fr units, and also minmax. It is SLOW.
+  // ! It's an ESPECIALLY bad idea when we're overflow:hidden-ing the body.
+
   grid-template-columns: repeat(auto-fill, 200px);
 
   gap: 0.75rem;
