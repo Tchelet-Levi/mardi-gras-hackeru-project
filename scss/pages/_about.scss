@@ -38,7 +38,7 @@
       filter: brightness(25%);
 
       @include image-div;
-      background-image: url("/images/festival1.jpg");
+      background-image: url("../images/festival1.jpg");
     }
   }
 }
@@ -80,7 +80,7 @@
     height: 25ch;
 
     border-radius: 99999px;
-    background-image: url("/images/LaToya_Cantrell.jpg");
+    background-image: url("../images/LaToya_Cantrell.jpg");
 
     &::before {
       content: "";

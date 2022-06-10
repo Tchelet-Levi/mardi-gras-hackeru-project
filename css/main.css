@@ -1227,7 +1227,7 @@ body {
   bottom: 0;
   z-index: -1;
   filter: brightness(25%);
-  background-image: url("/images/festival1.jpg");
+  background-image: url("../images/festival1.jpg");
 }
 
 .about-sections-container {
@@ -1285,7 +1285,7 @@ body {
   width: 25ch;
   height: 25ch;
   border-radius: 99999px;
-  background-image: url("/images/LaToya_Cantrell.jpg");
+  background-image: url("../images/LaToya_Cantrell.jpg");
 }
 .about-mayor-section .mayor-img::before {
   content: "";
