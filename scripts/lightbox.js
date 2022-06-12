@@ -19,6 +19,7 @@ class Lightbox {
 
   openModal(itemElem) {
     this.modalElem.classList.remove("modal-closed");
+    this.modalElem.setAttribute("aria-expanded", "true");
     this.isModalOpen = true;
 
     // Prevent scrolling
@@ -27,10 +28,18 @@ class Lightbox {
 
     currPresentedItem = itemElem;
     currPresentedItemRect = itemElem.getBoundingClientRect();
+
+    // Create CustomEvent for onLightboxModalOpen
+    const eventData = { currentElement: itemElem };
+    const onModalOpen = new CustomEvent("onLightboxModalOpen", { detail: eventData });
+
+    // Emit globally that the lightboxModal is open
+    document.dispatchEvent(onModalOpen);
   }
 
   closeModal() {
     this.modalElem.classList.add("modal-closed");
+    this.modalElem.setAttribute("aria-expanded", "false");
     this.isModalOpen = false;
 
     currPresentedItem.style = "";
@@ -39,6 +48,13 @@ class Lightbox {
 
     document.body.style.overflow = "";
     document.body.style.height = "";
+
+    // Create CustomEvent for onLightboxModalClosed
+    const eventData = { currentElement: currPresentedItem };
+    const onModalClosed = new CustomEvent("onLightboxModalClosed", { detail: eventData });
+
+    // Emit globally that the lightboxModal is closed
+    document.dispatchEvent(onModalClosed);
 
     currPresentedItem = null;
     currPresentedItemRect = null;
@@ -74,12 +90,12 @@ lightboxArr.forEach((lightbox) => {
       // If we are already open, don't do anything.
       if (lightbox.isModalOpen === true) return;
 
+      const centerTransformRules = centerStyle(item, currPresentedItemRect);
+      item.setAttribute("style", `${centerTransformRules};`);
+      item.classList.add("presented");
+
       // Open modal
       lightbox.openModal(item);
-
-      const centerTransformRules = centerStyle(item, currPresentedItemRect);
-      item.style = `${centerTransformRules};`;
-      item.classList.add("presented");
     });
 
     // When transitioning back, make sure current item is still on top of everything.
@@ -102,6 +118,7 @@ window.addEventListener("resize", (event) => {
 
   // Recenter item
   if (currPresentedItem) {
+    // TODO: Still buggy on resize but I am running out of time for this project.
     const centerTransformRules = centerStyle(currPresentedItem, currPresentedItemRect);
     currPresentedItem.style = `${centerTransformRules};`;
   }

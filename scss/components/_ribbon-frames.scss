@@ -10,7 +10,8 @@ $ribbons-drop-shadow: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.25))
   position: absolute;
   left: 0;
   right: 0;
-  height: $ribbons-height;
+
+  height: $ribbons-height; // 3.5rem
 
   z-index: 1;
 }
@@ -29,7 +30,7 @@ $ribbons-drop-shadow: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.25))
 }
 
 .top-ribbons-purple {
-  clip-path: polygon(0 25%, 100% 49%, 100% 100%, 0 50%);
+  clip-path: polygon(0 25%, 100% 50%, 100% 100%, 0 50%);
   background-color: $primary-purple;
 }
 

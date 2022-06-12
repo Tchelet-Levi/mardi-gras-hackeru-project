@@ -2,15 +2,22 @@
 @use "../base/" as *;
 
 .youtube-container {
+  position: relative;
   display: flex;
+
+  width: 100%;
+  height: 100%;
 
   box-shadow: $box-shadow-2;
 
   iframe {
-    border-radius: $border-radius-2;
     width: 100%;
     height: 100%;
-
-    aspect-ratio: 16 / 9;
   }
+}
+
+.lightbox-item.presented .youtube-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
