@@ -1,5 +1,3 @@
-// Usually you would use some kind of bundler to avoid multiple requests, but since this project is quite small as it is, everything is in a single file instead of in modules.
-
 // Give CSS access to current width and height variables
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit.
 const vh = window.innerHeight * 0.01;

@@ -339,6 +339,10 @@ hr {
   filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.25)) drop-shadow(0px 0px 12px rgba(0, 0, 0, 0.25));
 }
 
+.no-shadow {
+  filter: none;
+}
+
 .btn-cta {
   position: relative;
   border: none;
@@ -423,6 +427,9 @@ hr {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   text-align: center;
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   max-width: 420px;
 }
 .sponsor-card img {
@@ -445,6 +452,7 @@ hr {
   border: none;
   font-size: 2rem;
   width: 100%;
+  margin-top: auto;
   cursor: pointer;
 }
 
@@ -579,9 +587,11 @@ form {
 .youtube-container {
   position: relative;
   display: flex;
+  overflow: hidden;
   width: 100%;
   height: 100%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
 }
 .youtube-container iframe {
   width: 100%;
@@ -749,6 +759,7 @@ form {
   padding: 0.75rem;
   font-size: 2rem;
   border-radius: 99999px;
+  z-index: 10002;
   cursor: pointer;
 }
 .lightbox-modal-close:hover, .lightbox-modal-close:focus {
@@ -1003,6 +1014,11 @@ body {
   display: none;
 }
 
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .hero-section {
   position: relative;
   display: grid;
@@ -1128,7 +1144,7 @@ body {
   background-color: #f2f2f2;
   padding: 1.5rem;
   overflow: hidden;
-  padding-bottom: 6rem;
+  padding-bottom: 2.5rem;
 }
 .home-info-section h3 {
   color: rgba(0, 0, 0, 0.87);
@@ -1163,12 +1179,18 @@ body {
     margin: 1rem auto;
   }
 }
+@media (min-width: 992px) {
+  .home-info-section {
+    text-align: left;
+  }
+}
 
 .home-sponsors-section {
   position: relative;
   background-color: #f2f2f2;
   padding: 1.5rem;
   overflow: hidden;
+  padding-top: 5.25rem;
   padding-bottom: 5.25rem;
   background: radial-gradient(#dcecc5, #8cbf3f);
 }
@@ -1195,13 +1217,15 @@ body {
   line-height: 28px;
 }
 .home-sponsors-section h3 {
-  margin: 6rem 0;
+  margin-top: 0;
 }
 
 .sponsors-container {
   display: grid;
   gap: 1rem;
   justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
   margin-bottom: 4rem;
 }
 @media (min-width: 992px) {
@@ -1407,6 +1431,7 @@ body {
   min-height: calc(100vh - var(--header-height));
   padding-top: 4.75rem;
   padding-bottom: 4.75rem;
+  padding: 4.75rem 1.5rem;
   background: radial-gradient(#dcecc5, #8cbf3f);
   overflow: initial;
   text-align: center;
@@ -1436,33 +1461,64 @@ body {
   font-size: 1rem;
   line-height: 28px;
 }
+.pictures-section h1,
+.videos-section h1 {
+  font-size: 2rem;
+}
 .pictures-section h2,
 .videos-section h2 {
   font-family: "Pattaya", sans-serif;
   letter-spacing: 0.125em;
   font-weight: 400;
   font-size: 2rem;
-  text-align: left;
+  text-align: center;
 }
 
+.pictures-section {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 8.75rem;
+}
+.pictures-section .lightbox-grid {
+  grid-template-columns: repeat(auto-fill, 300px);
+  justify-content: center;
+}
+@media (min-width: 992px) {
+  .pictures-section .lightbox-grid {
+    grid-template-columns: repeat(auto-fill, 200px);
+  }
+}
+.pictures-section .bottom-ribbons-wrapper {
+  bottom: -1px;
+}
 .pictures-section .year-section {
+  margin: 0 auto;
   margin-top: 3rem;
+  width: 100%;
+  max-width: 920px;
+}
+.pictures-section .year-section:nth-child(1n) {
+  margin-top: 0;
 }
 
 .videos-section {
   background: radial-gradient(#f6e867 0%, #f2cc0f 80%);
   padding-bottom: 7.75rem;
 }
-.videos-section h2 {
-  margin-bottom: 4rem;
+.videos-section .videos-section-content {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .videos-wrapper .lightbox-grid {
   grid-template-columns: repeat(auto-fill, 300px);
+  justify-content: center;
   gap: 1rem;
 }
-.videos-wrapper .lightbox-item {
-  aspect-ratio: initial;
+@media (min-width: 1400px) {
+  .videos-wrapper .lightbox-grid .lightbox-item {
+    aspect-ratio: 16/9;
+  }
 }
 
 .quiz-section {

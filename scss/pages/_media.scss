@@ -12,6 +12,7 @@
   min-height: $full-height;
   padding-top: $footer-edge-height + 1rem;
   padding-bottom: $footer-edge-height + 1rem;
+  padding: ($footer-edge-height + 1rem) 1.5rem;
 
   background: $green-gradient;
 
@@ -19,18 +20,51 @@
 
   text-align: center;
 
+  h1 {
+    font-size: 2rem;
+  }
+
   h2 {
     font-family: $pattaya;
     letter-spacing: 0.125em;
     font-weight: 400;
     font-size: 2rem;
-    text-align: left;
+    text-align: center;
   }
 }
 
 .pictures-section {
+  display: flex;
+  flex-direction: column;
+
+  padding-bottom: $footer-edge-height + 5rem;
+
+  .lightbox-grid {
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: center;
+
+    @include large-device {
+      grid-template-columns: repeat(auto-fill, 200px);
+    }
+  }
+
+  .bottom-ribbons-wrapper {
+    // Flex on pictures-section introduces a 1px gap... for some reason.
+    // Most likely chrome being chrome again.
+    // This is here to cover offset it.
+    bottom: -1px;
+  }
+
   .year-section {
+    margin: 0 auto;
     margin-top: 3rem;
+
+    width: 100%;
+    max-width: $max-width-desktop;
+
+    &:nth-child(1n) {
+      margin-top: 0;
+    }
   }
 }
 
@@ -38,18 +72,23 @@
   background: $yellow-gradient;
   padding-bottom: $footer-edge-height + 4rem;
 
-  h2 {
-    margin-bottom: 4rem;
+  .videos-section-content {
+    max-width: $max-width-desktop-larger;
+    margin: 0 auto;
   }
 }
 
 .videos-wrapper {
   .lightbox-grid {
     grid-template-columns: repeat(auto-fill, 300px);
-    gap: 1rem;
-  }
 
-  .lightbox-item {
-    aspect-ratio: initial;
+    justify-content: center;
+    gap: 1rem;
+
+    .lightbox-item {
+      @include xx-large-device {
+        aspect-ratio: 16 / 9;
+      }
+    }
   }
 }

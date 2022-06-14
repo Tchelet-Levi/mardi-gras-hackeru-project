@@ -5,6 +5,13 @@
 // I miss TypeScript interfaces and types..
 // Current active item and its rect.
 // This is global because only one lightbox can be active at a time.
+
+/* 
+    ! KNOWN BUG: Since entering modal prevents scrolling, the scrollbar disappears. (body: overflow: hidden) 
+    This is an okay behavior except that the grid then (auto-fill) shifts to fill in the blank space
+    Which changes the position of all the grid items, which throws the center calculation
+    out of whack. I would fix this but I am running out of time for this project.
+*/
 let currPresentedItem = null;
 let currPresentedItemRect = null;
 
@@ -90,7 +97,7 @@ lightboxArr.forEach((lightbox) => {
       // If we are already open, don't do anything.
       if (lightbox.isModalOpen === true) return;
 
-      const centerTransformRules = centerStyle(item, currPresentedItemRect);
+      const centerTransformRules = centerStyle(item);
       item.setAttribute("style", `${centerTransformRules};`);
       item.classList.add("presented");
 
@@ -119,8 +126,8 @@ window.addEventListener("resize", (event) => {
   // Recenter item
   if (currPresentedItem) {
     // TODO: Still buggy on resize but I am running out of time for this project.
-    const centerTransformRules = centerStyle(currPresentedItem, currPresentedItemRect);
-    currPresentedItem.style = `${centerTransformRules};`;
+    const centerTransformRules = centerStyle(currPresentedItem);
+    currPresentedItem.setAttribute("style", `${centerTransformRules}`);
   }
 });
 

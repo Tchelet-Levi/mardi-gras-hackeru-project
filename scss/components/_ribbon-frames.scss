@@ -56,3 +56,7 @@ $ribbons-drop-shadow: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.25))
 .ribbons-shadow-container {
   filter: $ribbons-drop-shadow;
 }
+
+.no-shadow {
+  filter: none;
+}

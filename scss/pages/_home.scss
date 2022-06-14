@@ -130,8 +130,8 @@ $full-height-last: calc(100vh - var(--header-height) + $footer-edge-height);
 // - Home Info Section
 .home-info-section {
   @include generic-section;
-  padding-bottom: 6rem;
 
+  padding-bottom: 2.5rem;
   h3 {
     color: $primary-purple;
   }
@@ -142,6 +142,10 @@ $full-height-last: calc(100vh - var(--header-height) + $footer-edge-height);
       margin: 1rem auto;
     }
   }
+
+  @include large-device {
+    text-align: left;
+  }
 }
 
 // Sponsors Section
@@ -149,9 +153,10 @@ $full-height-last: calc(100vh - var(--header-height) + $footer-edge-height);
   @include generic-section;
 
   h3 {
-    margin: 6rem 0;
+    margin-top: 0;
   }
 
+  padding-top: 1.5rem + $footer-edge-height;
   padding-bottom: 1.5rem + $footer-edge-height;
   background: radial-gradient($green-100, $primary-green);
 }
@@ -160,6 +165,9 @@ $full-height-last: calc(100vh - var(--header-height) + $footer-edge-height);
   display: grid;
   gap: 1rem;
   justify-content: center;
+
+  max-width: $max-width-desktop-larger;
+  margin: 0 auto;
 
   @include large-device {
     grid-template-columns: repeat(auto-fit, 300px);

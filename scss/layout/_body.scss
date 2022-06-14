@@ -25,3 +25,8 @@ body {
 .d-none {
   display: none;
 }
+
+.content-container {
+  max-width: $max-width-desktop-larger;
+  margin: 0 auto;
+}
