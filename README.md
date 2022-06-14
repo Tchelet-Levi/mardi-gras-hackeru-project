@@ -31,3 +31,16 @@ Sorry if I missed something!
 ### Note regarding the use of images
 
 Due to not being able to use copyrighted images (in other words, google images), I ended up reusing a bunch of images, especially in the Media page. I feel like this is out of my control. I wanted to abide by the restrictions given to me, however, I do very much recognize that the website would look much better if I was allowed to use more and better images.
+
+### Note regarding compatibility across browsers
+
+The goal here, as always, is to make sure the website looks as consistently good as possible across every browser,
+though in actuality we all know that a perfect solution like that is not entirely possible.
+
+However, I did build the website with cross browser compatibility in mind, and tested it in:
+
+1. Brave Browser (Chromium)
+2. Firefox
+3. Microsoft Edge (Also Chromium)
+
+Due to the differences between how Chromium based browser and Firefox render the document, subtle effects such as transform and filter() look differently. For example, Firefox is very good at correcting subpixel transformations whereas Chromium isn't. Meanwhile Chromium is great at handling filter while Firefox does it slightly differently.
