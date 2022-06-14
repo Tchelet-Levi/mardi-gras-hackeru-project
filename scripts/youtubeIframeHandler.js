@@ -1,14 +1,15 @@
 /*
 
   The problem:
-    Loading every youtube video at once is extremely resource intensive, uses a lot of internet bandwidth and generally is bad for user experiences and very slow loading of the web page.
+    Loading every youtube video at once is extremely resource intensive, uses a lot of internet bandwidth and generally is bad for user experiences (very slow loading of the web page).
     Furthermore, once the iframe is there, if you click on it, it will control the video;
     not the lightbox item, which means you wont be able to click on it, enlarge it,
     and play the video.
 
   The goal:
-    By default, every youtube-container is going to display the thumbnail image of the youtube video (iframe) we want to show. Once user clicks on it, it will allow us to enlarge the video. Clicking on it again once enlarged will allow us to switch out the img tag with the iframe of the full video.
-    Once we close the the lightbox modal, switch back to the img thumbnail and allow the process to be repeated infinitely.
+    By default, every youtube-container is going to display the thumbnail image of the youtube video (iframe) we want to show (since it is much cheaper to load images than iframes).
+    Once the user clicks on it, it will allow us to enlarge the video. Clicking on it again once enlarged will allow us to switch out the img tag with the iframe of the full video.
+    Once we close the the lightbox modal, switch back to the img thumbnail and allow the process to be repeated indefinitely.
 
   Thoughts & Problems: 
     This will require communication between lightbox and the youtube-container.
@@ -16,7 +17,7 @@
     Possible solution: make lightbox emit events whenever something is opened and closed.
 
     * EDIT 1: Added global event emitters for whenever a lightbox gets opened or closed.
-    ! EDIT 2: Current solutions is not a perfect solution. CSS transforms cause blurry pictures.
+    ! EDIT 2: Current solutions is not a perfect solution. CSS transforms may cause blurry pictures due to          sub-pixel precisions errors (on Chrome based browsers).
 */
 
 let isModalOpen = false;

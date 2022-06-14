@@ -84,7 +84,14 @@
   font-size: 2rem;
   border-radius: 99999px;
 
-  z-index: 10002;
+  z-index: 10003;
+
+  @include large-device {
+    font-size: 3rem;
+
+    margin-top: 3.5rem;
+    margin-right: 3.5rem;
+  }
 
   cursor: pointer;
 

@@ -42,47 +42,10 @@ header {
     font-weight: 500;
 
     border-top: 1px rgba($color: #000000, $alpha: 0.1) solid;
-
-    @include large-device {
-      &::before {
-        content: "";
-        position: absolute;
-
-        bottom: 0;
-        left: 0;
-
-        width: 100%;
-        height: 2px;
-
-        background-color: $text-primary;
-
-        transform: scale(0, 1);
-        transition: transform 100ms ease;
-      }
-
-      &:hover,
-      &:focus {
-        &::before {
-          transform: scale(1, 1);
-        }
-      }
-    }
   }
 
   .btn-nav-current {
-    @include large-device {
-      &:hover,
-      &:focus {
-        &::before {
-          background-color: $text-primary;
-        }
-      }
-
-      &::before {
-        transform: scale(1, 1);
-        background-color: $text-secondary;
-      }
-    }
+    text-decoration: underline;
   }
 
   li:first-child a {
@@ -169,8 +132,11 @@ header {
   transform: translateX(0);
 }
 
+$btn-nav-padding-x: 2rem;
+$btn-nav-padding-y: 1.5rem;
 .btn-nav {
-  padding: 1.5rem 2rem;
+  padding: $btn-nav-padding-y $btn-nav-padding-x;
+  padding-bottom: 0;
 }
 
 .btn-nav-back {
@@ -220,4 +186,50 @@ header {
   .header-page-title {
     display: none;
   }
+}
+
+// Strips
+// Inspiration taken from https://bethesda.net/en/game/starfield
+
+.strips-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: $btn-nav-padding-y;
+}
+
+.rainbow-strip {
+  display: none;
+  @include large-device {
+    display: block;
+  }
+
+  width: 10px;
+  height: $btn-nav-padding-y / 1.5;
+
+  transition: transform 100ms ease;
+  transition-delay: calc(50ms * var(--strip-index, 0));
+  transform-origin: 50% 100%;
+
+  transform: scaleY(0);
+
+  &:nth-child(1) {
+    background-color: $primary-purple;
+  }
+
+  &:nth-child(2) {
+    background-color: $primary-green;
+  }
+
+  &:nth-child(3) {
+    background-color: $yellow-800;
+  }
+
+  &:nth-child(4) {
+    background-color: #b43e4e;
+  }
+}
+
+.btn-nav:hover .rainbow-strip {
+  transform: scaleY(1);
 }

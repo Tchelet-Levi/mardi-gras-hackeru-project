@@ -57,3 +57,36 @@ function toggleExpandedCards(e, button) {
 btnSponsorCards.forEach((button) =>
   button.addEventListener("click", (e) => toggleExpandedCards(e, button))
 );
+
+// Add the necessary elements to the hover effect.
+// This is here because I am adding this right before submitting the project and I don't want to update every single html page. I miss frameworks and component reusability :')
+const headerAnchors = document.querySelectorAll("nav ul li a");
+headerAnchors.forEach((anchor) => {
+  // Create container
+  const stripsContainer = document.createElement("div");
+  stripsContainer.classList.add("strips-container");
+
+  // Create children
+  const strip1 = document.createElement("div");
+  strip1.classList.add("rainbow-strip");
+  strip1.setAttribute("style", "--strip-index: 0");
+  stripsContainer.appendChild(strip1);
+
+  const strip2 = document.createElement("div");
+  strip2.classList.add("rainbow-strip");
+  strip2.setAttribute("style", "--strip-index: 1");
+  stripsContainer.appendChild(strip2);
+
+  const strip3 = document.createElement("div");
+  strip3.classList.add("rainbow-strip");
+  strip3.setAttribute("style", "--strip-index: 2");
+  stripsContainer.appendChild(strip3);
+
+  const strip4 = document.createElement("div");
+  strip4.classList.add("rainbow-strip");
+  strip4.setAttribute("style", "--strip-index: 3");
+  stripsContainer.appendChild(strip4);
+
+  // Append container to anchor
+  anchor.appendChild(stripsContainer);
+});
