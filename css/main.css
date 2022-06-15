@@ -996,7 +996,7 @@ header {
 .rainbow-strip {
   display: none;
   width: 10px;
-  height: 1rem;
+  height: calc(1.5rem / 1.5);
   transition: transform 100ms ease;
   transition-delay: calc(50ms * var(--strip-index, 0));
   transform-origin: 50% 100%;

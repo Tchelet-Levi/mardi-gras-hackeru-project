@@ -205,7 +205,7 @@ $btn-nav-padding-y: 1.5rem;
   }
 
   width: 10px;
-  height: $btn-nav-padding-y / 1.5;
+  height: calc(#{$btn-nav-padding-y} / 1.5);
 
   transition: transform 100ms ease;
   transition-delay: calc(50ms * var(--strip-index, 0));
