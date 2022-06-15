@@ -8,9 +8,14 @@
 
 /* 
     ! KNOWN BUG: Since entering modal prevents scrolling, the scrollbar disappears. (body: overflow: hidden) 
-    This is an okay behavior except that the grid then (auto-fill) shifts to fill in the blank space
-    Which changes the position of all the grid items, which throws the center calculation
-    out of whack. I would fix this but I am running out of time for this project.
+      This is an okay behavior except that the grid then (auto-fill) shifts to fill in the blank space
+      Which changes the position of all the grid items, which throws the center calculation
+      out of whack. I would fix this but I am running out of time for this project.
+
+    ! KNOWN BUG 2: getBoundingClientRect takes CSS transforms into consideration which messes up with the calculation later down the line, failing to center it.
+      To fix this problem I would need to get the computed transform matrix and try to work with that, but I am not good with math and in all honesty it would take me too long to solve it. I believe I would've came to a solution in the end but its already late into the project.
+
+    ! KNOWN BUG 3: This does not account for document flow changes. If grid resizes or places things differently, it will fail to center it.
 */
 let currPresentedItem = null;
 let currPresentedItemRect = null;
@@ -29,12 +34,17 @@ class Lightbox {
     this.modalElem.setAttribute("aria-expanded", "true");
     this.isModalOpen = true;
 
+    currPresentedItem = itemElem;
+    currPresentedItemRect = itemElem.getBoundingClientRect();
+
+    // Set style attributes
+    const centerTransformRules = centerStyle(itemElem, currPresentedItemRect);
+    itemElem.setAttribute("style", `${centerTransformRules};`);
+    itemElem.classList.add("presented");
+
     // Prevent scrolling
     document.body.style.overflow = "hidden";
     document.body.style.height = "100vh";
-
-    currPresentedItem = itemElem;
-    currPresentedItemRect = itemElem.getBoundingClientRect();
 
     // Create CustomEvent for onLightboxModalOpen
     const eventData = { currentElement: itemElem };
@@ -97,10 +107,6 @@ lightboxArr.forEach((lightbox) => {
       // If we are already open, don't do anything.
       if (lightbox.isModalOpen === true) return;
 
-      const centerTransformRules = centerStyle(item);
-      item.setAttribute("style", `${centerTransformRules};`);
-      item.classList.add("presented");
-
       // Open modal
       lightbox.openModal(item);
     });
@@ -126,20 +132,23 @@ window.addEventListener("resize", (event) => {
   // Recenter item
   if (currPresentedItem) {
     // TODO: Still buggy on resize but I am running out of time for this project.
-    const centerTransformRules = centerStyle(currPresentedItem);
+    const centerTransformRules = centerStyle(currPresentedItem, currPresentedItemRect);
     currPresentedItem.setAttribute("style", `${centerTransformRules}`);
   }
 });
 
 // ? See explanation at the bottom
 function centerStyle(item, rect) {
-  if (!item) throw Error(`${item} is ${typeof item}!`);
-
+  if (!item) throw Error(`${item} is ${typeof item}.`);
+  if (!rect) throw Error(`No boundingClientRect.`);
   // Get position of current element in relation to the viewport
-  let boundingClientRect = rect ? rect : item.getBoundingClientRect();
+  let boundingClientRect = rect;
+  let boundingClientXY = item.getBoundingClientRect();
 
-  const desiredY = -boundingClientRect.top + viewportDimensions.height / 2;
-  const desiredX = -boundingClientRect.left + viewportDimensions.width / 2;
+  const desiredY = -boundingClientXY.top + viewportDimensions.height / 2;
+  const desiredX = -boundingClientXY.left + viewportDimensions.width / 2;
+
+  console.log(desiredX, desiredY);
 
   const translateX = `translateX(calc(${desiredX}px - 50%))`;
   const translateY = `translateY(calc(${desiredY}px - 50%))`;
